@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 70px;
+    background: url("https://i.pinimg.com/736x/e3/7d/a9/e37da92d1e32051af32a81a8950733f3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    flex: 1;
+}
+
+footer {
+    background-color: #ff99cc; /* Светло-розовый фон */
+    color: #ffffff; /* Белый текст */
+    text-align: center;
+    padding: 10px;
+}
+
+.card {
+    height: 200px;
+    border: 1px solid #ff66b2; /* Ярко-розовая рамка */
+}
+
+.card-body {
+    overflow: hidden;
+}
+
+.card-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ff66b2; /* Ярко-розовый текст */
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 2px solid #ff99cc; /* Светло-розовая граница под изображением */
+}
+
+.card {
+    height: auto;
+    background-color: #ffe6f2; /* Очень светлый розовый фон для карточек */
+}
