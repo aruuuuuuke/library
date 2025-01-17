@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for i in corzins %}
+        <li>
+        <h1>{{ i.related_book }}</h1>
+        <p>{{ i.status }}</p>
+            <button><a href="/corzins_list/{{ i.id }}/">Подробнее</a></button>
+            <button><a href="/corzins_list/{{ i.id }}/delete">Удалить</a></button>
+            <button><a href="/corzins_list/{{ i.id }}/update">Изменить</a></button>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

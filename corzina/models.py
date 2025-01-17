@@ -10,7 +10,7 @@ class ShoppingCart(models.Model):
         ("Purchased", "Purchased"),
         ("Removed", "Removed"),
     )
-    item = models.TextField()
+    item = models.TextField(default="Купить книгу: ", null=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=20)
     related_book = models.ForeignKey(Books, on_delete=models.CASCADE)  # Связь с фильмами
     quantity = models.PositiveIntegerField(default=1)  # Количество товара
