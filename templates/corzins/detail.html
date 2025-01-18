@@ -2,14 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3d3d89;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .value {
+            color: #555;
+        }
+
+        .value, .label {
+            font-size: 1.1em;
+        }
+
+        .shipping-info {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-<h1>{{ corzina.item }}</h1>
-<p>Status:{{ corzina.status }}</p>
-<p>Book name: {{ corzina.related_book }}</p>
-<p>Quantity: {{ corzina.quantity }}</p>
-<p>{{ corzina.created_at }}</p>
-<p>{{ corzina.updated_at }}</p>
+
+<div class="container">
+    <h1>Product Detail</h1>
+    <div class="detail-item">
+        <p><span class="label">Book name:</span> <span class="value">{{ object.related_book }}</span></p>
+    </div>
+    <div class="detail-item">
+        <p><span class="label">Status:</span> <span class="value">{{ object.status }}</span></p>
+    </div>
+    <div class="detail-item">
+        <p><span class="label">Quantity:</span> <span class="value">{{ object.quantity }}</span></p>
+    </div>
+
+    <div class="shipping-info">
+        <p><span class="label">Shipping Address:</span> <span class="value">{{ object.shipping_address }}</span></p>
+        <p><span class="label">Contact Number:</span> <span class="value">{{ object.contact_number }}</span></p>
+    </div>
+</div>
+
 </body>
 </html>

@@ -10,12 +10,11 @@ class ShoppingCart(models.Model):
         ("Purchased", "Purchased"),
         ("Removed", "Removed"),
     )
-    item = models.TextField(default="Купить книгу: ", null=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=20)
     related_book = models.ForeignKey(Books, on_delete=models.CASCADE)  # Связь с фильмами
     quantity = models.PositiveIntegerField(default=1)  # Количество товара
-    created_at = models.DateField(auto_now_add=True)
-    updated_at = models.DateField(auto_now=True)
+    shipping_address = models.CharField(max_length=250, null=True)
+    contact_number = models.CharField(max_length=15, null=True, blank=True)  # Номер телефона
 
     def __str__(self):
         return f'{self.item} - {self.status} - Quantity: {self.quantity}'
