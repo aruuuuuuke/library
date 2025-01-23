@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('library.urls')),
     path("", include('hastags.urls')),
     path("", include('corzina.urls')),
+    path("", include('parser.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL,
             document_root=settings.MEDIA_ROOT)

@@ -4,7 +4,8 @@ from . import models
 from django.views.generic import ListView
 
 class BookSearchView(ListView):
-    template_name = 'book.html'
+    template_name = (''
+                     'book.html')
     context_object_name = 'book_list'
 
     def get_queryset(self):
