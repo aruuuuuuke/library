@@ -1,0 +1,18 @@
+<h1>Добро пожаловать</h1>
+<ol>
+    {% for i in person %}
+        <li>
+            <p>{{ i.username }}</p>
+            <p>{{ i.experience }}</p>
+            {% if i.salary %}
+            <p>Зарплата : - {{ i.salary}}</p>
+            {% else %}
+            <p>Зарплата не определен</p>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ol>
+<form action="{% url 'users:login' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Выйти из аккаунта</button>
+</form>

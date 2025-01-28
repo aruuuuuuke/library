@@ -30,7 +30,9 @@ INSTALLED_APPS = [
     'library',
     'hastags',
     'corzina',
-    'parser_litres'
+    'parser_litres',
+    'users',
+    'recipe'
 ]
 
 MIDDLEWARE = [
@@ -41,7 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'users.middleware.AgeClubMiddleware',
+    'users.middleware.AgeClubMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'

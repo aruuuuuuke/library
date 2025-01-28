@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3d3d89;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .value {
+            color: #555;
+        }
+
+        .value, .label {
+            font-size: 1.1em;
+        }
+
+        .ingredients {
+            margin-top: 20px;
+        }
+
+        .ingredient-item {
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Recipe Detail</h1>
+    <div class="detail-item">
+        <p><span class="label">Meal name:</span> <span class="value">{{ recipe.title }}</span></p>
+    </div>
+    <div class="detail-item">
+        <p><span class="label">Description:</span> <span class="value">{{ recipe.description }}</span></p>
+    </div>
+
+    <div class="ingredients">
+        <h2>Ingredients:</h2>
+        {% for ingredient in ingredients %}
+            <div class="ingredient-item">
+                <p><span class="label">Name:</span> {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}</p>
+            </div>
+        {% empty %}
+            <p>No ingredients added yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
