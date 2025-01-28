@@ -1,20 +1,20 @@
 from django.utils.deprecation import MiddlewareMixin
 from django.http import HttpResponseBadRequest
 
-class AgeClubMiddleware(MiddlewareMixin):
+class ExperienceSalaryMiddleware(MiddlewareMixin):
     def process_request(self, request):
         if request.path == '/register/' and request.method == 'POST':
-            age = int(request.POST.get('age'))
-            if age < 7:
-                return HttpResponseBadRequest("Вы сликом малы приходите на следующий год")
-            elif age >=7 and age < 12:
-                request.club = 'Детский клуб'
-            elif age  >=12 and age < 18:
-                request.club = 'Подростковый клуб'
-            elif age >=18 and age <= 60:
-                request.club = 'Взрослый клуб'
+            experience = int(request.POST.get('experience'))
+            if experience < 1:
+                return HttpResponseBadRequest("У вас недостаточно опыта")
+            elif experience >=1 and experience < 3:
+                request.salary = '1000$'
+            elif experience  >=3 and experience < 6:
+                request.salary = '2000$'
+            elif experience >=6 and experience <= 10:
+                request.salary = '5000$'
             else:
-                return HttpResponseBadRequest('Ваш возраст больше 60 извните вы не проходите')
+                return HttpResponseBadRequest("Может быть пора отдохнуть")
         elif request.path == '/register/' and request.method == 'GET':
-            setattr(request, 'club', 'Клуб не определен')
+            setattr(request, 'salary', 'Зарплата не определена')
 

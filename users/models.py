@@ -8,21 +8,20 @@ class CustomUser(User):
         ('F', 'Female'),
     )
     phone_number = models.CharField(max_length=14)
-    # Важное поле для middlewares
-    age = models.PositiveIntegerField(default=7)
+    experience = models.PositiveIntegerField(default=7)
     gender = models.CharField(max_length=1, choices=GENDER)
-    club = models.CharField(max_length=100)
+    salary = models.CharField(max_length=100)
 
     def save(self, *args, **kwargs):
-        if self.age < 7:
-            self.club = 'Вы сликом малы приходите на следующий год'
-        elif 7 <= self.age < 12:
-            self.club = 'Детский клуб'
-        elif 12 <= self.age < 18:
-            self.club = 'Подростковый клуб'
-        elif 18 <= self.age <= 60:
-            self.club = 'Взрослый клуб'
+        if self.experience < 1:
+            self.salary = "У вас недостаточно опыта"
+        elif 1 <= self.experience < 3:
+            self.salary = '1000$'
+        elif 3 <= self.experience < 6:
+            self.salary = '2000$'
+        elif 6 <= self.experience <= 10:
+            self.salary = '5000$'
         else:
-            self.club = 'Ваш возраст больше 60 извните вы не проходите'
+            self.salary = "Может быть пора отдохнуть"
 
         super().save(*args, **kwargs)
